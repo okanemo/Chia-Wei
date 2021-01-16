@@ -3,6 +3,8 @@
 
 Please fix the application and return expected results as per indicated in /src/index.ts
 
+Use the logic to solve the issue are the key important.
+
 ----
 
 
