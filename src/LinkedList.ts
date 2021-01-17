@@ -10,6 +10,7 @@ class Node {
 }
 
 class LinkedList extends OrderBy {
+  collection: any;
   head: Node | null = null;
 
   constructor() {
@@ -72,6 +73,34 @@ class LinkedList extends OrderBy {
 
     console.log(res.join(" -> "));
   }
+
+  ascending() {
+    let pointer = this.head;
+    while (pointer) {
+      if (pointer.next && pointer.data > pointer.next.data) {
+        const tmp = pointer.data;
+        pointer.data = pointer.next.data;
+        pointer.next.data = tmp;
+        pointer = this.head;
+      } else {
+        pointer = pointer.next;
+      }
+    }
+  };
+
+  descending() {
+    let pointer = this.head;
+    while (pointer) {
+      if (pointer.next && pointer.data < pointer.next.data) {
+        const tmp = pointer.data;
+        pointer.data = pointer.next.data;
+        pointer.next.data = tmp;
+        pointer = this.head;
+      } else {
+        pointer = pointer.next;
+      }
+    }
+  };
 }
 
 export default LinkedList;
