@@ -9,13 +9,8 @@ class Node {
   }
 }
 
-class LinkedList extends OrderBy {
-  collection: any;
+class LinkedList {
   head: Node | null = null;
-
-  constructor() {
-    super();
-  }
 
   get length(): number {
     if (!this.head) {
