@@ -1,16 +1,20 @@
-import OrderBy from './OrderBy';
+import Collections from './Collections';
 
-class CharacterCollection extends OrderBy {
+class CharacterCollection extends Collections {
   public collection: string;
-  public length: number;
 
   constructor(data: string) {
     super();
     this.collection = data;
-    this.length = data.length;
   }
 
-  // TODO
+  ascending() {
+    this.collection = [...this.collection].sort((a: string, b: string) => (a.charCodeAt(0) - b.charCodeAt(0))).join("");
+  }
+
+  descending() {
+    this.collection = [...this.collection].sort((a: string, b: string) => (b.charCodeAt(0) - a.charCodeAt(0))).join("")
+  }
 
 }
 
