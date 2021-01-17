@@ -9,11 +9,11 @@ class CharacterCollection extends Collections {
   }
 
   ascending() {
-    [...this.collection].sort((a: string, b: string) => (a.charCodeAt(0) - b.charCodeAt(0))).join("");
+    this.collection = [...this.collection].sort((a: string, b: string) => (a.charCodeAt(0) - b.charCodeAt(0))).join("");
   }
 
   descending() {
-    [...this.collection].sort((a: string, b: string) => (b.charCodeAt(0) - a.charCodeAt(0))).join("")
+    this.collection = [...this.collection].sort((a: string, b: string) => (b.charCodeAt(0) - a.charCodeAt(0))).join("")
   }
 
 }
