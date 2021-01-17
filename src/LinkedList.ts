@@ -1,5 +1,3 @@
-import OrderBy from './OrderBy';
-
 class Node {
   next: Node | null = null;
   data: number;

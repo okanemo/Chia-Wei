@@ -1,16 +1,20 @@
-import OrderBy from './OrderBy';
+import Collections from './Collections';
 
-class NumberCollection extends OrderBy {
+class NumberCollection extends Collections {
   public collection: number[];
-  public length: number;
 
   constructor(data: number[]) {
     super();
     this.collection = data;
-    this.length = data.length;
   }
 
-  // TODO
+  ascending() {
+    this.collection.sort((a: number, b: number) => (a > b ? 1 : -1));
+  }
+
+  descending() {
+    this.collection.sort((a: number, b: number) => (a > b ? -1 : 1));
+  }
 
 }
 
