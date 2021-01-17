@@ -63,7 +63,6 @@ class LinkedList {
       res.push(node.data);
       node = node.next;
     }
-
     console.log(res.join(" -> "));
   }
 
@@ -71,9 +70,7 @@ class LinkedList {
     let pointer = this.head;
     while (pointer) {
       if (pointer.next && pointer.data > pointer.next.data) {
-        const tmp = pointer.data;
-        pointer.data = pointer.next.data;
-        pointer.next.data = tmp;
+        this.swap(pointer, pointer.next);
         pointer = this.head;
       } else {
         pointer = pointer.next;
@@ -85,14 +82,41 @@ class LinkedList {
     let pointer = this.head;
     while (pointer) {
       if (pointer.next && pointer.data < pointer.next.data) {
-        const tmp = pointer.data;
-        pointer.data = pointer.next.data;
-        pointer.next.data = tmp;
+        this.swap(pointer, pointer.next);
         pointer = this.head;
       } else {
         pointer = pointer.next;
       }
     }
+  };
+
+  private swap(x : Node, y : Node) {
+    if (x === y || x === undefined || y === undefined) return;
+    const previous_x = this.find_previous_node(x);
+    const previous_y = this.find_previous_node(y);
+    if (previous_x !== undefined) {
+      previous_x.next = y;
+    } else { 
+      this.head = y
+    };
+    if (previous_y !== undefined) {
+      previous_y.next = x;
+    } else {
+      this.head = x;
+    } 
+    const temp = x.next;
+    x.next = y.next;
+    y.next = temp;
+  };
+
+  private find_previous_node(node : Node) {
+    let previous_pointer = undefined;
+    let pointer = this.head;
+    while (pointer != undefined && pointer != node) {
+      previous_pointer = pointer;
+      pointer = pointer.next;
+    }
+    return previous_pointer;
   };
 }
 

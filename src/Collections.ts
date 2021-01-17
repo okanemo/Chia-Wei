@@ -1,7 +1,7 @@
 abstract class Collections {
   abstract collection: any;
 
-  size() {
+  get size() {
     return this.collection.length;
   }
 
